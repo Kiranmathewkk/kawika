@@ -1,0 +1,158 @@
+<!-- <div class="card">
+    <h4 class="card-header">Login</h4>
+    <div class="card-body">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+         
+          <label for="email">Email</label>
+          <mat-icon matPrefix>person_outline</mat-icon>
+          <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">Email is required</div>
+            <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors?.required">Password is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <button [disabled]="loading" class="btn btn-primary"  >
+                      <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                      Login
+                  </button>
+          <a routerLink="../register" class="btn btn-link">Register</a>
+        </div>
+      </form>
+    </div>
+  </div> -->
+
+  <!-- <form>
+    <div class="login-container">
+      <div class="login-content">
+        <mat-toolbar class="login-toolbar" color="primary">Login Now</mat-toolbar>
+        <mat-card>
+          <form [formGroup]="loginForm" #formDirective="ngForm" 
+    (ngSubmit)="onSubmit(loginForm, formDirective)" >
+            <mat-form-field>
+              <mat-icon matPrefix>person_outline</mat-icon>
+              <input autofocus type="text" matInput placeholder="Email" formControlName="email">
+            </mat-form-field>
+  
+            <mat-form-field>
+              <mat-icon matPrefix>lock_outline</mat-icon>
+              <input type="password" autocomplete="false" matInput placeholder="Password"  formControlName="password">
+            </mat-form-field>
+  
+            <button type="submit" [disabled]="loginForm.invalid" mat-raised-button color="primary">LOGIN</button>
+          </form>
+         
+            <br>
+            <span> If You don't have a account yet please <a routerLink ='/register'>REGISTER HERE</a></span>
+  
+  
+  
+          
+        </mat-card>
+      </div>
+    </div> -->    
+
+
+
+    <div class="parent clearfix">
+      <div class="bg-illustration">
+        <img src="https://i.ibb.co/Pcg0Pk1/logo.png" alt="logo">
+  
+        <div class="burger-btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+  
+      </div>
+      
+      <div class="login" *ngIf ="!isRegister && !isReset">
+        <div class="container">
+          <h1>Login to access to<br />your account</h1>
+      
+          <div class="login-form">
+            <form action="" [formGroup]="loginForm" #formDirective="ngForm" 
+            (ngSubmit)="onSubmit(loginForm, formDirective)" >
+              <input type="email" matInput placeholder="Email" formControlName="email">
+              <input type="password" autocomplete="false" matInput placeholder="Password"  formControlName="password">
+  
+              <div class="remember-form">
+                <input type="checkbox">
+                <span>Remember me</span>
+              </div>
+              <div class="forget-pass">
+                <a (click)="newUser(3)" >Forgot Password ?</a>
+              </div>
+            <div class="row">
+              <button type="submit" [disabled]="loginForm.invalid" mat-raised-button color="primary">LOG-IN</button>
+              <div class ="signup">
+                <a (click)="newUser(1)">  New User ?</a>
+              </div>
+            </div>
+            </form>
+          </div>
+      
+        </div>
+      </div>
+
+      <div class="login" *ngIf="isRegister && !isReset">
+        <div class="container">
+          <h1>Create your<br />your account</h1>
+      
+          <div class="login-form">
+            <form action="" [formGroup]="form" (ngSubmit)="submit()" >
+              <!-- <input type="email" matInput placeholder="Email" formControlName="email">
+              <input type="password" autocomplete="false" matInput placeholder="Password"  formControlName="password"> -->
+  
+  
+              <input type="text" formControlName="fullname" matInput placeholder="Full Name" />
+              
+              <input type="text" formControlName="email" matInput  placeholder="Email "  />
+              
+              <input type="password" matInput formControlName="password" placeholder="Password "  />
+              
+  
+             
+            <div class="row">
+              <button type="submit" [disabled]="form.invalid" mat-raised-button color="primary">REGISTER</button>
+              <div class ="signup">
+                <a (click)="newUser(2)">  Log-in ?</a>
+              </div>
+            </div>
+            </form>
+          </div>
+      
+        </div>
+      </div>
+      <div class="login" *ngIf="isReset">
+        <div class="container">
+          <h1>Enter Your Email</h1>
+      
+          <div class="login-form">
+            <form action="" [formGroup]="reset" (ngSubmit)="onReset()" >
+              <!-- <input type="email" matInput placeholder="Email" formControlName="email">
+              <input type="password" autocomplete="false" matInput placeholder="Password"  formControlName="password"> -->
+  
+  
+              <input type="emai" formControlName="email" matInput placeholder="Email" />
+    
+            <div class="row">
+              <button type="submit" [disabled]="reset.invalid" mat-raised-button color="primary">SEND</button>
+              <div class ="signup">
+                <a (click)="newUser(2)">  Log-in ?</a>
+              </div>
+            </div>
+            </form>
+          </div>
+      
+        </div>
+      </div>
+    </div>

@@ -1,0 +1,62 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">User List</h4>
+                        <p class="card-category"> </p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        ID
+                                    </th>
+                                    <th>
+                                        Full Name
+                                    </th>
+                                    <th>
+                                        Email
+                                    </th>
+                                    <th>
+                                        Position
+                                    </th>
+                                    <th>
+                                        Employee Code
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor='let data of userDetails ; index as i'   style="cursor:pointer;" (click)="userView(data)">
+                                        <td>
+                                            {{i+1}}
+                                        </td>
+                                        <td>
+                                            {{data.fullname}}
+                                        </td>
+                                        <td>
+                                            {{data.email}}
+                                        </td>
+                                        <td>
+                                            {{data.position}}
+                                        </td>
+                                        <td class="text-primary">
+                                            {{data.employecode }}
+                                        </td>
+                                        <td>
+                                            <i class="material-icons " matTooltip="Delete" style="cursor: pointer;" (click)="userDelete(data.id,i)">delete</i>
+                                        </td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+        </div>
+    </div>
+  </div>
+  

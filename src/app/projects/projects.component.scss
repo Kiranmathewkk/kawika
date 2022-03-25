@@ -1,0 +1,22 @@
+.mainDiv{
+    position: relative;
+  }
+  #add-button{
+  
+    right: 20px;
+    bottom: 10px;
+    left: auto;
+    position: absolute;
+  }
+  
+  .card{
+    margin-bottom: 2px;
+  }
+  .card :hover{
+    box-shadow: 8px 8px 8px #f7f7f5;
+    color: cornflowerblue;
+   }
+  .card-container-right{
+    display: inline;
+    float: right;
+  }

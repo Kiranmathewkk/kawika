@@ -1,0 +1,53 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="card card-plain">
+          <div class="card-header card-header-danger">
+              <h4 class="card-title">{{title}}</h4>
+              <!-- <p class="card-category">Handcrafted by our friends from
+                  <a target="_blank" href="https://fonts.google.com/icons">Google</a>
+              </p> -->
+          </div>
+          <div class="row" style="margin-top: 30px;">
+              <div class="col-md-12">
+                <div class="card" *ngFor = "let list of taskList;let i = index "  style="margin-top: 3px;">
+                  <div class="card-body" >
+                   <span (click)="viewTask(list)" style="padding-right: 5px;cursor: pointer;"> {{list.title}} </span>
+                     <span class="float-right" style="padding-right: 5px;cursor: pointer;" (click)="openDialog(list,'edit')">
+                        <i class="material-icons " matTooltip="Edit Task" >edit</i> 
+                            
+                        </span>
+                        
+                       <!-- <i class="material-icons " matTooltip="Assign Task"  >add_circle</i> -->
+                       <span class="float-right" style="padding-right: 25px; cursor: pointer;">
+                        
+                          <i class="material-icons " data-toggle="dropdown" matTooltip="Assign Task"  >add_circle</i>
+                        
+                          <ul class="dropdown-menu"  >
+                             <li *ngFor="let user of allUsers" (click)="assignTask(user,list,i)">{{user.fullname}}</li>
+                          
+                           </ul>
+                       </span>
+                    <span class="float-right" style="padding-right: 35px;">
+                       
+                       <i *ngIf ="list.status"> assinged</i>
+                     </span>
+                     <span  class="float-right" style="padding-right: 15px" >
+                      <i *ngIf ="list.hours" class=" " >{{list.hours}} : Hrs </i>
+                  </span>
+                  </div>
+                </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<div class="mainDiv">
+    <div class="container">
+      
+      <div class="customer-list">
+        
+          <button mat-fab color="primary" id="add-button" matTooltip="Add Task" (click)="openDialog(1,'create')"><i class="material-icons" >add</i></button>
+      </div>
+  
+    </div>
+  </div>
